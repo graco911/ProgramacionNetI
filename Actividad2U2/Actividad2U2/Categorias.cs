@@ -11,6 +11,10 @@ namespace Actividad2U2
         Uno = 600,
         Dos = 700,
         Tres = 800,
-        Cuatro = 900
+        Cuatro = 900,
+        ExtraUno = 200,
+        ExtraDos = 250,
+        ExtraTres = 300,
+        ExtraCuatro = 350
     }
 }

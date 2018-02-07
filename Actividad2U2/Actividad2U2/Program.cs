@@ -18,7 +18,7 @@ namespace Actividad2U2
             Console.WriteLine("Evidencia de Aprendizaje");
             int categoria = 0;
             int dias = 0;
-            int horas = 0;
+            int extras = 0;
 
             //Try para la excepcion en caso de que se inserte un valor no numerico
             try
@@ -33,6 +33,7 @@ namespace Actividad2U2
                     Console.WriteLine("3.-Categoria Tres");
                     Console.WriteLine("4.-Categoria Cuatro");
                     Console.WriteLine("5.-Salir");
+
                     //leer el dato desde teclado
                     categoria = Convert.ToInt32(Console.ReadLine());
 
@@ -40,41 +41,40 @@ namespace Actividad2U2
                     {
                         Console.WriteLine("Ingrese la categoria correcta.");
                     }
-
-                    Console.WriteLine("Ingrese los dias laborados.");
-                    dias = Convert.ToInt32(Console.ReadLine());
-
-                    Console.WriteLine("Ingrese las horas laboradas.");
-                    horas = Convert.ToInt32(Console.ReadLine());
-
-                    var sueldo = 0;
-
-                    switch (categoria)
+                    if (categoria == 5)
                     {
-                        case 1:
-                            sueldo = (int)Categorias.Uno;
-                            break;
-                        case 2:
-                            sueldo = (int)Categorias.Dos;
-                            break;
-                        case 3:
-                            sueldo = (int)Categorias.Tres;
-                            break;
-                        case 4:
-                            sueldo = (int)Categorias.Cuatro;
-                            break;
+                        Console.WriteLine("Programa terminado.");
+                        Console.ReadLine();
                     }
 
-                    CalcularSueldo(categoria, dias, horas);
+                    do
+                    {
+                        Console.WriteLine("Ingrese los dias laborados.");
+                        dias = Convert.ToInt32(Console.ReadLine());
+
+                        if (dias < 0 || dias > 6)
+                        {
+                            Console.WriteLine("Maximo 6 dias.");
+                        }
+
+                    } while (dias > 6);
+
+                    do
+                    {
+                        Console.WriteLine("Ingrese las horas extras.");
+                        extras = Convert.ToInt32(Console.ReadLine());
+
+                        if (extras > 10)
+                        {
+                            Console.WriteLine("Solo seran pagadas 10 horas.");
+                            extras = 10;
+                        }
+
+                    } while (extras > 10);
+
+                    CalcularSueldo(categoria, dias, extras);
 
                 } while (categoria != 5);
-
-                ////creacion de un objeto del tipo transaccion pasandole como parametro la cantidad a retirar
-                //var transaccion = new Transaccion(cantidad);
-                ////llamada al metodo publico calcular retiro
-                //transaccion.CalcularRetiro();
-                Console.WriteLine("Programa terminado.");
-                Console.ReadLine();
 
             }
             catch (Exception ex)
@@ -83,8 +83,36 @@ namespace Actividad2U2
                 Console.WriteLine("Error: " + ex.Message);
                 Console.ReadLine();
             }
+        }
 
+        private static void CalcularSueldo(int categoria, int dias, int extras)
+        {
+            var sueldo = 0;
+            var extra = 0;
 
+            switch (categoria)
+            {
+                case 1:
+                    sueldo = (int)Categorias.Uno * dias;
+                    extra = (int)Categorias.ExtraUno * extras;
+                    break;
+                case 2:
+                    sueldo = (int)Categorias.Dos * dias;
+                    extra = (int)Categorias.ExtraDos * extras;
+                    break;
+                case 3:
+                    sueldo = (int)Categorias.Tres * dias;
+                    extra = (int)Categorias.ExtraTres * extras;
+                    break;
+                case 4:
+                    sueldo = (int)Categorias.Cuatro * dias;
+                    extra = (int)Categorias.ExtraCuatro * extras;
+                    break;
+            }
+
+            Console.WriteLine("Sueldo total: " + sueldo);
+            Console.WriteLine("Horas extras : " + extra);
+            Console.WriteLine();
         }
     }
 }
