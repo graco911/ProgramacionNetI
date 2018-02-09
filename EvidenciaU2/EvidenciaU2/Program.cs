@@ -14,7 +14,7 @@ namespace EvidenciaU2
             Console.WriteLine("Inicio del programa.");
 
             //Creacion de la variable numero y llamada ala funcion leer()
-            var numero = Leer();
+            long numero = Leer();
 
             //Condicional que evalua el resultado de la funcion que calcula un numero primo
             if (NumerosPrimos(numero))
@@ -33,14 +33,14 @@ namespace EvidenciaU2
 
         }
 
-        private static int Factorial(int numero)
+        private static long Factorial(long numero)
         {
             //Esta funcion calcula el factorial de un numero, recibe como parametro un numero 
             //y mediante una estructura ciclia evalua que el numero sea distinto de 0 para realizar 
             //el calculo, suma el numero al factorial y lo reduce en una unidad por cada iteracion
             Console.WriteLine("Entrada a la funcion que calcula el factorial de un numero");
 
-            var factorial = 1;
+            long factorial = 1;
             while (numero != 0)
             {
                 factorial =factorial * numero;
@@ -49,7 +49,7 @@ namespace EvidenciaU2
             return factorial;
         }
 
-        private static bool NumerosPrimos(int v)
+        private static bool NumerosPrimos(long v)
         {
             //Esta funcion calcula si un numero es o no primo, devolviendo un valor booleano
             //mediante una estructura ciclica compara que el valor de la variable primo sea verdadera
@@ -72,17 +72,17 @@ namespace EvidenciaU2
             return primo;
         }
 
-        private static int Leer()
+        private static long Leer()
         {
             //la funcion Leer, lee un valor desde el teclado
             //usando igual un try-catch para detectar si el usuario
             //ingresa un valor que no sea numerico.
             Console.WriteLine("Función que lee un numero introducido por el teclado");
-            var num = 0;
+            long num = 0;
             try
             {
                 Console.WriteLine("Ingrese un numero");
-                num = Convert.ToInt32(Console.ReadLine());
+                num = Convert.ToInt64(Console.ReadLine());
             }
             catch (Exception ex)
             {
