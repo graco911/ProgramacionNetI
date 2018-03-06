@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Actividad2U2
+﻿namespace Actividad2U2
 {
+    //Este enumerador me permite agrupar los valores
+    //de las diferentes categorias y horas extras
     public enum Categorias : int
     {
         Uno = 600,
