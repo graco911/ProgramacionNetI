@@ -8,7 +8,7 @@ namespace Actividad4U3.Interfaces
     ///<remarks>
     ///Metodos necesarios para la actividad
     ///</remarks>
-    public interface IPersona
+    public interface IUsable
     {
         ///<summary>
         ///comprueba que el sexo introducido es correcto. Si no es correcto, por default será H.

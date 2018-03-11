@@ -44,7 +44,7 @@
     <Compile Include="Entidades\Personas\PersonaBase.cs" />
     <Compile Include="Entidades\Personas\PersonaData.cs" />
     <Compile Include="Enumerators\IMCEnumerator.cs" />
-    <Compile Include="Interfaces\IPersona.cs" />
+    <Compile Include="Interfaces\IUsable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

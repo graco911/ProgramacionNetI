@@ -1,4 +1,7 @@
-﻿namespace Actividad4U3.Enumerators
+﻿using System;
+using System.Reflection;
+
+namespace Actividad4U3.Enumerators
 {
     ///<summary>
     ///Enumerator con los valores para el calculo del IMC
@@ -22,16 +25,34 @@
         obesidadIII = 6,
     }
 
-    public class StringValueAttribute : System.Attribute
+    public class StringValue : System.Attribute
     {
-        private string _value;
-        public StringValueAttribute(string value)
+        private readonly string _value;
+        public StringValue(string value)
         {
             _value = value;
         }
         public string Value
         {
             get { return _value; }
+        }
+    }
+
+    public static class StringEnum
+    {
+        public static string GetStringValue(IMCEnumerator value)
+        {
+            string output = null;
+            Type type = value.GetType();
+            FieldInfo fi = type.GetField(value.ToString());
+            StringValue[] attrs =
+               fi.GetCustomAttributes(typeof(StringValue),
+                                       false) as StringValue[];
+            if (attrs.Length > 0)
+            {
+                output = attrs[0].Value;
+            }
+            return output;
         }
     }
 }
