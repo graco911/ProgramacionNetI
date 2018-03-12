@@ -25,7 +25,6 @@ namespace Actividad4U3
                 //ciclo para elegir las opciones del menu
                 do
                 {
-                    Console.Clear();
                     Console.WriteLine("Selecciona una opcion");
                     Console.WriteLine("1.-Listar personas");
                     Console.WriteLine("2.-Mostrar datos de las personas");

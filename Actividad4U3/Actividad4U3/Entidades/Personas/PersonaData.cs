@@ -24,7 +24,7 @@ namespace Actividad4U3.Entidades.Personas
         //Calculo del IMC
         public string CalcularIMC(float peso, float altura)
         {
-            var imc = peso / (Math.Pow(altura, 2));
+            var imc = peso / (altura * altura);
 
             if (imc < 18)
             {
